@@ -3,13 +3,17 @@ public class employee{
    public static final int is_full_time=2;
    public static final int rate_per_hour=20;
    public static final int working_days=20;
+   public static final int maxWorkingHours=100;
+   public static final int maxWorkingDays=20;
    public static void main(String[]  args){
 
        System.out.println("Welcome to Employee Wage Computation Program");
-   int hours=0; 
+   int hours=0;
+   int totalHours=0; 
+   int totalDays=0;
    int wage=0;
    int netWage=0;
-   for(int day=0; day<working_days; day++){
+   while(totalHours<=maxWorkingHours && totalDays<=maxWorkingDays){
 
        int presence = (int) Math.floor(Math.random()*10) % 3;
         switch (presence){
@@ -24,9 +28,11 @@ public class employee{
          }
      wage = hours * rate_per_hour;
      netWage += wage;
+     totalHours += hours;
+     totalDays +=1;
      }
     
-    System.out.println("Employee Wage for 20 working days :"+netWage);
+    System.out.println("Total Employee Wage Is :"+netWage);
    }
 
  }
